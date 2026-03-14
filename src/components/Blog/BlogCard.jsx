@@ -7,22 +7,22 @@ const BlogCard = ({ index, post }) => {
     <Link
       to={`/blog/${post._id}`}
       key={index}
-      className="bg-white rounded-lg shadow-lg overflow-hidden"
+      className="bg-white rounded-lg shadow-lg overflow-hidden h-full"
     >
       <img
         src={post.cover}
         alt={post.title}
-        className="w-full h-48 object-cover"
+        className="w-full aspect-video object-cover"
       />
-      <div className="flex flex-col p-4">
-        <h3 className="text-xl font-bold text-gray-800">{post.title}</h3>
-        <div className="flex w-full justify-between">
-          <p className="text-sm text-gray-600">by {post.author.username}</p>
-          <p className="text-sm text-gray-600">
+      <div className="flex flex-col p-3 sm:p-4">
+        <h3 className="text-lg sm:text-xl font-bold text-gray-800 break-words">{post.title}</h3>
+        <div className="flex flex-col sm:flex-row sm:items-center w-full sm:justify-between gap-1 sm:gap-2">
+          <p className="text-xs sm:text-sm text-gray-600 break-words">by {post.author.username}</p>
+          <p className="text-xs sm:text-sm text-gray-600">
             <time>{format(new Date(post.createdAt), "d MMM, yyyy HH:mm")}</time>
           </p>
         </div>
-        <div className="text-md text-indigo-500 font-medium mt-4">
+        <div className="text-sm sm:text-base text-indigo-500 font-medium mt-3 sm:mt-4 break-words">
           Inside: {post.summary}
         </div>
         {/* <p className="text-sm text-gray-600">

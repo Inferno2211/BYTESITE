@@ -135,7 +135,8 @@ p, span, a {
 
 .carousel-wrapper {
   overflow: hidden;
-  width: 100vw; 
+  width: 100%;
+  max-width: 100%;
 }
 
 .carousel-container {

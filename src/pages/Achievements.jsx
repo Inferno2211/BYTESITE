@@ -33,9 +33,9 @@ const ExperienceCard = ({ experience }) => {
       className="hover:scale-105 transition-transform ease-in-out duration-300" // Added hover scale effect
     >
       <div>
-        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <h3 className='text-white text-[20px] sm:text-[24px] font-bold leading-snug'>{experience.title}</h3>
         {experience.winner_name && (
-          <p className='text-secondary text-[16px] font-semibold' style={{ margin: 0 }}>
+          <p className='text-secondary text-[14px] sm:text-[16px] font-semibold' style={{ margin: 0 }}>
             {experience.winner_name}
           </p>
         )}
@@ -57,12 +57,12 @@ const ExperienceCard = ({ experience }) => {
 
 function Achievements() {
   return (
-    <div className='bg-[#000319] w-full'>
+    <div className='bg-[#000319] w-full px-2 sm:px-0'>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
           What we have achieved so far
         </p>
-        <h2 className="text-center text-[#4afaab] text-5xl">
+        <h2 className="text-center text-[#4afaab] text-3xl sm:text-4xl md:text-5xl px-4">
           BYTE ACHIEVEMENTS
         </h2>
       </motion.div>

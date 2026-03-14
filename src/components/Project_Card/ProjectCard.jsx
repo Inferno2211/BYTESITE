@@ -14,11 +14,11 @@ const ProjectCard = () => {
       
       {/* Left Side */}
       <div className='w-full lg:max-w-[45%] text-center lg:text-left'>
-        <div className='flex justify-start items-center flex-row gap-8'>
-          <h1 className='text-4xl sm:text-5xl lg:text-6xl justify-center items-center font-bold  tracking-wider'>
+        <div className='flex justify-center lg:justify-start items-center flex-wrap gap-4 sm:gap-6'>
+          <h1 className='text-3xl sm:text-5xl lg:text-6xl justify-center items-center font-bold tracking-wider break-words'>
             {project.title}
           </h1>
-          <a target="_blank" href={`${project.projectUrl}`}><Link className='md:size-10 sm:size-6'/></a>
+          <a target="_blank" href={`${project.projectUrl}`}><Link className='size-6 sm:size-8 md:size-10'/></a>
           
         </div>
         
@@ -28,7 +28,7 @@ const ProjectCard = () => {
         </p>
 
         {/* Avatars LOOP thingy*/}
-        <div className='mt-10 sm:mt-16 w-max'>
+        <div className='mt-10 sm:mt-16 w-full sm:w-max overflow-x-auto pb-2'>
           <MemberAvatars members={project.members} />
         </div>
       </div>

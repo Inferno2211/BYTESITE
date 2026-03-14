@@ -3,8 +3,13 @@ import gsap from 'gsap';
 
 const HeroMid = () => {
   useEffect(() => {
-    const textWidth = document.querySelector(".hero-mid-text").offsetWidth;
-    const containerWidth = document.querySelector(".hero-mid-container").offsetWidth;
+    const textNode = document.querySelector(".hero-mid-text");
+    const containerNode = document.querySelector(".hero-mid-container");
+
+    if (!textNode || !containerNode) return;
+
+    const textWidth = textNode.offsetWidth;
+    const containerWidth = containerNode.offsetWidth;
 
     gsap.fromTo(
       ".hero-mid-text",
@@ -20,7 +25,7 @@ const HeroMid = () => {
   }, []);
 
   return (
-    <div className="hero-mid-container overflow-hidden text-6xl font-bold mb-4 text-white">
+    <div className="hero-mid-container overflow-hidden text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white px-4">
       <div className="hero-mid-text inline-block whitespace-nowrap">
      We are Byte , Harvesting Insights from Diligent endeavours 
       {/* <span className="text-[#4afaab]">BYTE</span> where innovation meets action */}

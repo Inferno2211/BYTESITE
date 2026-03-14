@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import MembersGrid from '../components/about_section/MembersGrid';
 import ToggleTabs from '../components/about_section/ToggleTabs';
-import '../components/about_section/global.css';
+import styles from '../components/about_section/AboutSection.module.css';
 import data from '../components/about_section/data/members.json';
 
-function App(){
+function Aboutus() {
   const [active, setActive] = useState('members');
-  const [members, setMembers] = useState([]);
 
-  useEffect(()=> {
-    setMembers(data);
-  }, []);
-
-  const filtered = members.filter(m => {
-    if (active === 'members') return m.type === 'member';
-    if (active === 'alumni') return m.type === 'alumni';
-    return true;
-  });
+  const filtered = useMemo(() => {
+    if (active === 'members') {
+      return data.filter((m) => m.type === 'member');
+    }
+    if (active === 'alumni') {
+      return data.filter((m) => m.type === 'alumni');
+    }
+    return data;
+  }, [active]);
 
   return (
-    <div className="container">
-      <header style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:12}}>
-        <div style={{fontFamily: 'JetBrains Mono', fontWeight: '900', fontSize: 'inherit'}}>Members & Alumni</div>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <div className={styles.headerTitle}>Members & Alumni</div>
         <ToggleTabs active={active} setActive={setActive} />
       </header>
 
@@ -30,4 +29,4 @@ function App(){
   );
 }
 
-export default App;
+export default Aboutus;

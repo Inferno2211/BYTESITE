@@ -31,7 +31,7 @@ const cards = [
         designation: "Kuchtohu",
     },
     {
-        id: 4,
+        id: 5,
         image: "https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D",
         name: "Sagar",
         designation: "Kuchtohu",
@@ -65,7 +65,7 @@ const CardCarousel = () => {
     }, []);
 
     return (
-        <div className="card-carousel-container w-full max-w-4xl mb-48 mt py-12 relative ml-64">
+        <div className="card-carousel-container w-full max-w-4xl mb-20 sm:mb-32 py-8 sm:py-12 relative ml-0 md:ml-64 px-4 sm:px-0">
             <div className="flex items-center justify-center">
                 {cards.map((card, index) => {
                     const isActive = index === currentIndex;

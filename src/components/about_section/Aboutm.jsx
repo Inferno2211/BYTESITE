@@ -23,31 +23,43 @@ const cardVariants = {
 export default function Aboutm() {
   const [activeGroup, setActiveGroup] = useState("All");
   const [currentVision, setCurrentVision] = useState(0);
+  const hasVisions = visions.length > 0;
 
   useEffect(() => {
+    if (!hasVisions) return undefined;
+
     const interval = setInterval(() => {
       setCurrentVision((v) => (v + 1) % visions.length);
     }, 5000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [hasVisions]);
 
   const filtered =
     activeGroup === "All"
       ? team
       : team.filter((p) => p.group === activeGroup);
 
+  if (!hasVisions) {
+    return (
+      <div className="py-16 bg-[#050816] text-white px-4 sm:px-8">
+        <p className="text-center text-gray-400">About content will be available soon.</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="py-16 bg-[#050816] text-white px-6 sm:px-16">
+    <div className="py-16 bg-[#050816] text-white px-4 sm:px-8 md:px-16">
       {/* Vision Section */}
       <motion.div
-        className="max-w-3xl mx-auto bg-gradient-to-br from-green-800/80 via-black to-black/80 p-10 rounded-3xl shadow-2xl text-center backdrop-blur-lg mb-16 m-8"
+        className="max-w-3xl mx-auto bg-gradient-to-br from-green-800/80 via-black to-black/80 p-6 sm:p-10 rounded-3xl shadow-2xl text-center backdrop-blur-lg mb-16"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         <motion.h1
           key={visions[currentVision].title}
-          className="text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-green-400 to-purple-400 bg-clip-text text-transparent"
+          className="text-3xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-green-400 to-purple-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -56,7 +68,7 @@ export default function Aboutm() {
         </motion.h1>
         <motion.h2
           key={visions[currentVision].subtitle}
-          className="text-2xl sm:text-3xl mb-4 text-gray-300"
+          className="text-xl sm:text-3xl mb-4 text-gray-300"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -65,7 +77,7 @@ export default function Aboutm() {
         </motion.h2>
         <motion.p
           key={visions[currentVision].description}
-          className="text-lg leading-relaxed text-gray-400"
+          className="text-sm sm:text-lg leading-relaxed text-gray-400"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -101,17 +113,17 @@ export default function Aboutm() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
       >
         {filtered.map((person, i) => (
           <motion.div
-            key={i}
+            key={person.name}
             variants={cardVariants}
             whileHover="hover"
-            className="relative bg-gradient-to-br from-gray-900/90 via-gray-800/80 to-black/90 backdrop-blur-md border border-[#00ffae]/30 rounded-2xl overflow-hidden shadow-lg cursor-pointer group"
+            className="relative min-h-[300px] sm:min-h-[340px] bg-gradient-to-br from-gray-900/90 via-gray-800/80 to-black/90 backdrop-blur-md border border-[#00ffae]/30 rounded-2xl overflow-hidden shadow-lg cursor-pointer group"
           >
             {/* Image Section - covers top-right and extends to mid-left */}
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-40 sm:h-48 overflow-hidden">
               <div 
                 className="absolute inset-0 bg-gradient-to-br from-[#00ffae]/20 to-transparent"
                 style={{
@@ -136,9 +148,9 @@ export default function Aboutm() {
             </div>
 
             {/* Content Section */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-left">
               <motion.h3 
-                className="text-xl font-bold text-white mb-2"
+                className="text-lg sm:text-xl font-bold text-white mb-2"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}

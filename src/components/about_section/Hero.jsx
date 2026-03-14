@@ -5,21 +5,21 @@ import ComputersCanvas from './canvas/Computers'
 const Hero = () => {
   return (
     <section className='relative w-full h-screen mx-auto'>
-      <div className='sm:px-16 px-6 absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5'>
+      <div className='sm:px-16 px-4 absolute inset-0 top-[88px] sm:top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-3 sm:gap-5'>
         <div className='flex flex-col justify-center items-center mt-10 '>
           <div className='w-5 h-5 rounded-full bg-[#4afaab]' />
           <div className='w-1 sm:h-80 h-40 green-gradient' />
         </div>
-        <div className='text-white p-6 font-Poppins'>
+        <div className='text-white p-3 sm:p-6 font-Poppins'>
           <motion.h1 
-          className='font-Space text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-600'
+          className='font-Space text-3xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-600 leading-tight'
           initial={{ opacity: 0, x: 200 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, delay:1 }}
           >
             WE ARE BYTE
           </motion.h1>
-          <div className="font-Space text-lg mt-4">
+          <div className="font-Space text-sm sm:text-base md:text-lg mt-3 sm:mt-4 leading-relaxed">
           <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -43,8 +43,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="hero-component p-6 mb-20 text-white tracking-widest">
-      <div className="leading-tight text-8xl font-bold">
+    <div className="hero-component p-4 sm:p-6 mb-10 sm:mb-16 md:mb-20 text-white tracking-wide sm:tracking-widest">
+      <div className="leading-tight text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold">
         <div>
           <span className="byte-letter text-[#4afaab]">B</span><span className="full-form">rains</span>
         </div>
@@ -58,7 +58,7 @@ const Hero = () => {
           <span className="byte-letter text-[#4afaab]">E</span><span className="full-form">ndeavours</span>
         </div>
       </div>
-      <div className="mt-4 text-xl">
+      <div className="mt-4 text-base sm:text-lg md:text-xl">
         <span className="text-[#4afaab]">Solving Problems </span>
         <span>One</span>
         <span className="text-[#4afaab] font-bold"> BYTE</span>

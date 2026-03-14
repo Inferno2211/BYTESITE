@@ -2,14 +2,14 @@ import { Carousel } from "flowbite-react";
 
 const CarouselComponent = ({ items }) => {
   return (
-    <div className="h-96 w-full max-w-5xl mx-auto bg-gradient-to-br from-gray-900 to-green-900 rounded-3xl overflow-hidden">
+    <div className="h-56 sm:h-72 md:h-96 w-full max-w-5xl mx-auto bg-gradient-to-br from-gray-900 to-green-900 rounded-2xl sm:rounded-3xl overflow-hidden">
       <Carousel slideInterval={5000} indicators={false}>
         {items.map((item, index) => (
-          <div key={index} className="flex h-full items-center justify-center text-white p-16 shadow-2xl ">
-            <div className="space-y-6">
-              <h2 className="text-5xl font-mono font-semibold">{item.title}</h2>
-              {item.tagline && <p className="text-xl font-mono">{item.tagline}</p>}
-              <p className="text-xl font-mono">{item.content}</p>
+          <div key={index} className="flex h-full items-center justify-center text-white p-4 sm:p-8 md:p-16 shadow-2xl">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-mono font-semibold">{item.title}</h2>
+              {item.tagline && <p className="text-sm sm:text-base md:text-xl font-mono">{item.tagline}</p>}
+              <p className="text-sm sm:text-base md:text-xl font-mono">{item.content}</p>
             </div>
           </div>
         ))}

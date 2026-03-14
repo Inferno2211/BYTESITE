@@ -1,14 +1,13 @@
 .card {
   border-radius: var(--card-radius);
-  padding: 28px 20px 26px;
-  max-width: calc((100% - 28px - 28px) / 3);
-  width: calc((100% - 28px - 28px) / 3);
-  aspect-ratio: 9 / 10;
+  padding: 1.35rem 1rem 1.1rem;
+  width: 100%;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  background-image: linear-gradient(to bottom right, rgb(33 41 59 / .6) 0%, rgb(41 51 73 / .6) 90%, rgb(33 41 59 / .6) 100%);
+  gap: 0.85rem;
+  background-image: linear-gradient(to bottom right, rgb(33 41 59 / 0.6) 0%, rgb(41 51 73 / 0.65) 90%, rgb(33 41 59 / 0.6) 100%);
   border-top-color: #ffffff1a;
   border-bottom-color: #0000001a;
   border-top-width: 2px;
@@ -18,11 +17,17 @@
   border-right: none;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.35);
 }
 
 .avatar {
-  width: 60%;
+  width: min(58%, 150px);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
@@ -30,38 +35,53 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
-.top{
+.top {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .info {
   text-align: center;
   width: 100%;
-  padding-top: 6px;
+  padding-top: 0.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 50%;
+  flex: 1;
 }
 
 .name {
-  font-size: 1.5rem;
-  margin: 1vh 0 0.5vh 0;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  margin: 0.3rem 0 0.2rem;
   font-weight: 700;
-  font-family: JetBrains Mono;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.25;
 }
 
 .role {
   margin: 0;
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
 }
 
 .badges {
   display: flex;
-  gap: 8px;
+  gap: 0.45rem;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .card {
+    min-height: 340px;
+    padding: 1.2rem 0.9rem 1rem;
+  }
+
+  .avatar {
+    width: min(50%, 132px);
+  }
 }

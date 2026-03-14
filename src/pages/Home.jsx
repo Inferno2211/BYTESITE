@@ -146,7 +146,7 @@ const TaskRedirectPopup = ({ isOpen, onClose }) => {
 const Home = () => {
 	const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
 	const [splineLoaded, setSplineLoaded] = useState(false);
-	const [showTaskPopup, setShowTaskPopup] = useState(false);
+	// const [showTaskPopup, setShowTaskPopup] = useState(false);
 	const splineRef = useRef(null);
 
 	useEffect(() => {
@@ -173,13 +173,13 @@ const Home = () => {
 	}, []);
 
 	// Auto-show popup after 3 seconds (optional)
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setShowTaskPopup(true);
-		}, 3000);
+	// useEffect(() => {
+	// 	const timer = setTimeout(() => {
+	// 		setShowTaskPopup(true);
+	// 	}, 3000);
 
-		return () => clearTimeout(timer);
-	}, []);
+	// 	return () => clearTimeout(timer);
+	// }, []);
 
 	// Loading placeholder component
 	const LoadingPlaceholder = ({ width, height }) => (
@@ -199,10 +199,10 @@ const Home = () => {
 	return (
 		<div className="pt-8 bg-black min-h-screen">
 			{/* Task Redirect Pop-up */}
-			<TaskRedirectPopup
+			{/* <TaskRedirectPopup
 				isOpen={showTaskPopup}
 				onClose={() => setShowTaskPopup(false)}
-			/>
+			/> */}
 
 			{/* Hero Section */}
 			<div className="flex flex-col lg:flex-row items-center justify-center mt-8 sm:mt-12 md:mt-16 relative px-4 sm:px-6 md:px-8 lg:px-12">
@@ -344,7 +344,7 @@ const Home = () => {
 				</div>
 			</div>
 
-			{/* Floating Task Button */}
+			{/* Floating Task Button
 			<motion.button
 				onClick={() => setShowTaskPopup(true)}
 				className="fixed bottom-6 right-6 bg-gradient-to-r from-[#00ffae] to-[#08f8ff] text-black p-4 rounded-full shadow-2xl hover:shadow-[0_0_25px_#00ffae88] transition-all duration-300 z-40"
@@ -355,13 +355,13 @@ const Home = () => {
 				transition={{ delay: 2, type: "spring" }}
 			>
 				<FaRocket className="w-6 h-6" />
-			</motion.button>
+			</motion.button> */}
 
 			{/* Content Section */}
 			<div className="">
 				{/* <CardCarousel /> */}
 				{/* <HeroMid /> */}
-				<CardContainer />
+				{/* <CardContainer /> */}
 			</div>
 
 			{/* Projects Section */}
